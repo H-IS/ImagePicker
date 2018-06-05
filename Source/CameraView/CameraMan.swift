@@ -13,7 +13,8 @@ class CameraMan {
 
   let session = AVCaptureSession()
   let queue = DispatchQueue(label: "no.hyper.ImagePicker.Camera.SessionQueue")
-
+  
+  var configuration = Configuration()
   var backCamera: AVCaptureDeviceInput?
   var frontCamera: AVCaptureDeviceInput?
   var stillImageOutput: AVCaptureStillImageOutput?
@@ -165,8 +166,10 @@ class CameraMan {
             }
             return
         }
-
-        self.savePhoto(image, location: location, completion: completion)
+        if self.configuration.savePhotoIntoLibrary {
+          self.savePhoto(image, location: location, completion: completion)
+        }
+        
       }
     }
   }
