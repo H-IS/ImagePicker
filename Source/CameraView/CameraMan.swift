@@ -168,6 +168,8 @@ class CameraMan {
         }
         if self.configuration.savePhotoIntoLibrary {
           self.savePhoto(image, location: location, completion: completion)
+        } else {
+          completion?()
         }
         
       }
