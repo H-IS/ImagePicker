@@ -136,6 +136,7 @@ class CameraView: UIViewController, CLLocationManagerDelegate, CameraManDelegate
     }
 
     cameraMan.delegate = self
+    cameraMan.configuration = self.configuration
     cameraMan.setup(self.startOnFrontCamera)
   }
 
